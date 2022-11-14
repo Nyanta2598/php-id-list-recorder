@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../model/database.php';
+require '../classes/database.php';
 include_once('functions.php');
 ?>
 
@@ -17,10 +17,10 @@ include_once('functions.php');
     <title>Student Edit</title>
 </head>
 <body>
-<?php include '../templates/nav.php'; ?>
+<?php include '../classes/nav.php'; ?>
     <div class="container mt-5">
 
-        <?php include('../view/message.php'); ?>
+        <?php include('../model/message.php'); ?>
 
         <div class="row">
             <div class="col-md-12">

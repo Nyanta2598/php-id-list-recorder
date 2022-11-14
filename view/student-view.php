@@ -1,5 +1,5 @@
 <?php
-require '../model/database.php';
+require '../classes/database.php';
 include_once('functions.php');
 ?>
 <!doctype html>
@@ -15,7 +15,7 @@ include_once('functions.php');
     <title>Student View</title>
 </head>
 <body>
-<?php include '../templates/nav.php'; ?>
+<?php include '../classes/nav.php'; ?>
     <div class="container mt-5">
 
         <div class="row">

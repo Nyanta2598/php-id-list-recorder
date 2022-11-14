@@ -97,6 +97,10 @@
         {
             echo "Bachelor of Science in Hospitality Management";
         }
+        elseif($student == 'BSIT')
+        {
+            echo "Bachelor of Science in Information Technology";
+        }
         else 
         {
             echo "Error Year";

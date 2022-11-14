@@ -1,25 +1,30 @@
-<?php
-    session_start();
+<?php 
+    session_start(); //session initiator
     require 'classes/database.php'; //connection
-    include_once('view/functions.php');
+    include_once('view/functions.php'); //functions
 ?>
-<!doctype html>
-<html lang="en">
-<?php include 'classes/header.php'?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+    <?php include 'classes/header.php'?>
+</head>
 <body>
-<?php include 'classes/nav.php'; ?>
+    <?php include 'classes/nav.php'; ?>
     <div class="container-lg mt-5">
-        <?php include('view/message.php'); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Student Details
-                            <a href="view/student-create.php" class="btn btn-primary float-end">Add Students</a>
-                        </h4>
+                        <h4>Student List</h4>
                     </div>
                     <div class="card-body table-responsive">
-                        <table id="example" class="table table-sm " >
+                        <table id="example" class="table table-sm display" >
                             <thead>
                                 <tr>
                                     <th scope="col"><center>#</th>
@@ -29,7 +34,6 @@
                                     <th scope="col"><center>Card</th>
                                     <th scope="col"><center>Case</th>
                                     <th scope="col"><center>Lace</th>
-                                    <th scope="col"><center>Action</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
@@ -62,15 +66,7 @@
                                                 </td>
                                           
                                                 
-                                                <td><center>
-                                                    <a href="view/student-view.php?id=<?= $student['id']; ?>" data-toggle="modal" data-target="#view-student" class="btn btn-info btn-sm">View</a>
-                                                    <a href="view/student-edit.php?id=<?= $student['id']; ?>"  class="btn btn-success btn-sm">Edit</a>
-                                                    <!-- hidden delete button -->
-                                                    <!-- <form action="view/code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_student" value="<?=$student['id'];?>" class="btn btn-danger btn-sm">Delete</button>
-                                                    </form> -->
-                                                    </center>
-                                                </td>
+                                        
                                             </tr>
                                             <?php 
                                         
@@ -78,6 +74,17 @@
                                 ?>
                                 
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Student Name</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Card</th>
+                                    <th>Case</th>
+                                    <th>Lace</th>
+                                </tr>
+                            </tfoot>
                         </table>
 
                     </div>
@@ -85,38 +92,37 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-<div class="modal fade" id="view-student" tabindex="-1" role="dialog" aria-labelledby="view-student" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>                                 
-    <script>
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            responsive: true,
-            select: true,
-            "pageLength": 5,
-            lengthMenu: [
-            [5, 10, 25, 50, -1],
-            [5, 10, 25, 50, 'All'],
-            ],   
-        });
-    } );
-    </script>
 </body>
+<script>
+  $(document).ready(function () {
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ],
+        initComplete: function () {
+            this.api()
+                .columns([2, 3])
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+ 
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+ 
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                });
+        },
+    });
+});
+</script>
 </html>

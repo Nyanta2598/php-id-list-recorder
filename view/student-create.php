@@ -15,10 +15,10 @@ session_start();
     <title>Student Create</title>
 </head>
 <body>
-<?php include '../templates/nav.php'; ?>
+<?php include '../classes/nav.php'; ?>
     <div class="container mt-5">
 
-        <?php include('../view/message.php'); ?>
+        <?php include('../classes/message.php'); ?>
 
         <div class="row">
             <div class="col-md-12">
