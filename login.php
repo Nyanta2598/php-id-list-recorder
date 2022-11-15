@@ -4,13 +4,13 @@
 <html lang="en">
 <head>
     <title>Login System in PHP MySQL</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <?php include 'classes/header.php'?>
 </head>
 <body>
     
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="mt-5 col-md-5">
 
                 <?php
                     // Your message code
@@ -29,20 +29,20 @@
 
                         <form action="classes/login-code.php" method="POST">
 
-                            <div class=" mt-3 mb-3 row">
+                            <div class="row mt-3 mb-3">
                                 <label class="col-sm-3 col-form-label ">Email:</label>
-                                <div class="col-sm-8">
+                                <div class="col-sm-9">
                                     <input class="form-control" type="email" name="email" placeholder="Enter Email">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label">Password:</label>
-                                <div class="col-sm-8">
+                                <div class="col-sm-9">
                                     <input class="form-control" type="password" name="password" placeholder="Enter Password">
                                 </div>
                             </div>
-                            <div class="mb-4 d-grid gap-2 col-5 mx-auto">
-                                <button type="submit" name="login_button" class="btn btn-primary">Login</button>
+                            <div class="mb-6 d-grid gap-2  mx-auto">
+                                <button type="submit" name="login_button" class="btn btn-primary btn-lg btn-block">Login</button>
                             </div>
 
                         </form>
