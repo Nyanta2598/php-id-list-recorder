@@ -1,6 +1,6 @@
 <?php
 require '../classes/database.php';
-include_once('functions.php');
+include_once('adminfunction.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@ include_once('functions.php');
                 <div class="card">
                     <div class="card-header">
                         <h4>Student Details 
-                            <a href="../index.php" class="btn btn-danger float-end">BACK</a>
+                            <a href="../home.php" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
                     <div class="card-body">

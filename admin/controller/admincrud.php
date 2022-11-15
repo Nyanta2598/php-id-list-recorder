@@ -12,13 +12,13 @@ if(isset($_POST['delete_student']))
     if($query_run)
     {
         $_SESSION['message'] = "Student Deleted Successfully";
-        header("Location: ../index.php");
+        header("Location: ../home.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Student Not Deleted";
-        header("Location: ../index.php");
+        header("Location: ../home.php");
         exit(0);
     }
 }
@@ -49,12 +49,12 @@ if(isset($_POST['update_student']))
             if($result)
             {
                 //$_SESSION['message'] = "Data Deleted Successfully!";
-                header("Location: ../index.php");
+                header("Location: ../home.php");
             } 
             else
             {
                 $_SESSION['message'] = "Data Not Deleted!. Error: " . $cardsql . "" . mysqli_error($con);
-                header("Location: ../index.php");
+                header("Location: ../home.php");
             }
         return; 
         case 1:
@@ -66,7 +66,7 @@ if(isset($_POST['update_student']))
             {
             // Card Already Received
                 $_SESSION['message'] = "Card Already Received";
-                header("Location: ../index.php");
+                header("Location: ../home.php");
             }
             else
             {
@@ -75,12 +75,12 @@ if(isset($_POST['update_student']))
                 if($query_run1)
                 {
                     $_SESSION['message'] = "Card Received Successfully";
-                    header("Location: ../index.php");
+                    header("Location: ../home.php");
                 }
                 else
                 {
                     $_SESSION['message'] = "Card Went Wrong!";
-                    header("Location: ../index.php");    
+                    header("Location: ../home.php");    
                 }
             }
             break;
@@ -96,12 +96,12 @@ if(isset($_POST['update_student']))
             if($result1)
             {
                 //$_SESSION['message'] = "Data Deleted Successfully!";
-                header("Location: ../index.php");
+                header("Location: ../home.php");
             } 
             else
             {
                 $_SESSION['message'] = "Data Not Deleted!. Error: " . $casesql . "" . mysqli_error($con);
-                header("Location: ../index.php");
+                header("Location: ../home.php");
             }
             break;
             case 1:
@@ -113,7 +113,7 @@ if(isset($_POST['update_student']))
                 {
                     // Case Already Received
                     $_SESSION['message'] = "Case Already Received";
-                    header("Location: ../index.php");
+                    header("Location: ../home.php");
                 }
                 else
                 {
@@ -122,12 +122,12 @@ if(isset($_POST['update_student']))
                     if($query_run2)
                     {
                         $_SESSION['message'] = "Case Received Successfully";
-                        header("Location: ../index.php");
+                        header("Location: ../home.php");
                     }
                     else
                     {
                         $_SESSION['message'] = "Case Went Wrong!";
-                        header("Location: ../index.php");  
+                        header("Location: ../home.php");  
                     }
                 }
             break;
@@ -144,12 +144,12 @@ if(isset($_POST['update_student']))
                 if($result2)
                 {
                     //$_SESSION['message'] = "Data Deleted Successfully!";
-                    header("Location: ../index.php");
+                    header("Location: ../home.php");
                 } 
                 else
                 {
                     $_SESSION['message'] = "Data Not Deleted!. Error: " . $lacesql . "" . mysqli_error($con);
-                    header("Location: ../index.php");
+                    header("Location: ../home.php");
                 }
             break;
             case 1:
@@ -161,7 +161,7 @@ if(isset($_POST['update_student']))
                 {
                     // Lace Already Received
                     $_SESSION['message'] = "Lace Already Received";
-                    header("Location: ../index.php");
+                    header("Location: ../home.php");
                 }
                 else
                 {
@@ -170,12 +170,12 @@ if(isset($_POST['update_student']))
                     if($query_run3)
                     {
                         $_SESSION['message'] = "Lace Received Successfully";
-                        header("Location: ../index.php");
+                        header("Location: ../home.php");
                     }
                     else
                     {
                         $_SESSION['message'] = "Lace Went Wrong!";
-                        header("Location: ../index.php");   
+                        header("Location: ../home.php");   
                     }
                 }
                 break;
@@ -186,7 +186,7 @@ if(isset($_POST['update_student']))
     else
     {
         $_SESSION['message'] = "Student Not Updated";
-        header("Location: ../index.php");
+        header("Location: ../home.php");
         exit(0);
     }
 
@@ -208,7 +208,7 @@ if(isset($_POST['save_student']))
     if($query_run)
     {
         $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../index.php");
+        header("Location: ../home.php");
         exit(0);
     }
     else
