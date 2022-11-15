@@ -20,7 +20,7 @@ include_once('functions.php');
 <?php include '../classes/nav.php'; ?>
     <div class="container mt-5">
 
-        <?php include('../model/message.php'); ?>
+        <?php include('../view/message.php'); ?>
 
         <div class="row">
             <div class="col-md-12">

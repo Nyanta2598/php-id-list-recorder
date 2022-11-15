@@ -17,7 +17,7 @@ session_start();
   
     <div class="container mt-5">
 
-        <?php include('../classes/message.php'); ?>
+        <?php include('message.php'); ?>
         <h1>IMPORT DATA HERE</h1>
         <form action="upload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="import_file" class="form-control" />
