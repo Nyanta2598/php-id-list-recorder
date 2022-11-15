@@ -21,7 +21,7 @@
                     } // Your message code
                 ?>
 
-                <div class="card shadow">
+                <div class="card shadow border-dark mb-3" >
                     <div class="card-header text-center">
                         <h4>Login</h4>
                     </div>
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="mb-6 d-grid gap-2  mx-auto">
-                                <button type="submit" name="login_button" class="btn btn-primary btn-lg btn-block">Login</button>
+                                <button type="submit" name="login_button" class="btn btn-outline-primary btn-lg btn-block">Submit</button>
                             </div>
 
                         </form>

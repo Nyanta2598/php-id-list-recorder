@@ -1,5 +1,6 @@
 <?php 
     session_start(); //session initiator
+    error_reporting(0);
     require 'classes/database.php'; //connection
     include_once('controller/adminfunction.php'); //functions
     $page1="list";
@@ -43,47 +44,43 @@
                                     $query = "SELECT * FROM students ";
                                     $query_run = mysqli_query($con, $query);
                                     while($student = mysqli_fetch_assoc($query_run)){
+                                        $id = $student['id'];
 
+                                        $query1 = "SELECT * FROM cards WHERE received = '$id' ";         
+                                        $query_run1 =  mysqli_query($con,  $query1); 
+            
+                                        $query2 = "SELECT * FROM cased WHERE received = '$id' ";         
+                                        $query_run2 =  mysqli_query($con,  $query2); 
+            
+                                        $query3 = "SELECT * FROM lace WHERE received = '$id' ";         
+                                        $query_run3 =  mysqli_query($con,  $query3); 
 
-                                        
-                                            ?>
-                                            <tr>
-                                                <th scope="row"><center><?php echo $i++; ?></td>
-                                                <td><?php echo $student['name']; ?></td>
-                                                <td><center><?php echo $student['course']; ?></td>
-                                                <td><center><?php echo $student['year']; ?></td>
-                                                <td><center>
-                                                    <input title="Received" data-toggle="tooltip" data-placement="top"
-                                                    type="checkbox" <?php echo checker($student['card_id']); ?> disabled/>
-                                                </td>
-                                                <td><center>
-                                                    <input  title="Date" data-toggle="tooltip" data-placement="top"
-                                                    type="checkbox" <?php echo checker($student['case_id']); ?> disabled/>
-                                                </td>
-
-                                                <td><center>
-                                                    <input title="Date" data-toggle="tooltip" data-placement="top"
-                                                    type="checkbox"<?php echo checker($student['lace_id']); ?> disabled/>
-                                                </td>
-                                          
-                                                
-                                        
-                                            </tr>
-                                            <?php 
-                                        
-                                    }  
+                                        $cards = mysqli_fetch_array($query_run1);
+                                        $case = mysqli_fetch_array($query_run2);
+                                        $lace = mysqli_fetch_array($query_run3);
                                 ?>
-                                
+                                <tr>
+                                    <th scope="row"><center><?php echo $i++; ?></td>
+                                    <td><?php echo $student['name']; ?></td>
+                                    <td><center><?php echo $student['course']; ?></td>
+                                    <td><center><?php echo $student['year']; ?></td>
+                                    <td><center><?= $cards['card_date'];?></td>
+                                    <td><center><?= $case['case_date'];?></td>
+                                    <td><center><?= $lace['lace_date'];?></td> 
+                                </tr>
+                                <?php 
+                                }  
+                            ?>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th>
+                                    <th><center>#</th>
                                     <th>Student Name</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Card</th>
-                                    <th>Case</th>
-                                    <th>Lace</th>
+                                    <th><center></th>
+                                    <th><center></th>
+                                    <th><center>Card</th>
+                                    <th><center>Case</th>
+                                    <th><center>Lace</th>
                                 </tr>
                             </tfoot>
                         </table>
